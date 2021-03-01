@@ -23,7 +23,7 @@ resource "aws_elb" "jenkins_elb" {
 
   tags {
     Name   = "jenkins_elb"
-    Author = "mlabouardy"
+    Author = "michael.fi"
     Tool   = "Terraform"
   }
 }

@@ -53,7 +53,7 @@ resource "aws_autoscaling_group" "jenkins_slaves" {
 
   tag {
     key                 = "Author"
-    value               = "mlabouardy"
+    value               = "michael.fi"
     propagate_at_launch = true
   }
 

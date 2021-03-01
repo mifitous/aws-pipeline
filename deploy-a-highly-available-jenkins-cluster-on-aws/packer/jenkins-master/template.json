@@ -1,7 +1,7 @@
 {
     "variables" : {
-        "region" : "eu-west-2",
-        "source_ami" : "ami-0274e11dced17bb5b"
+        "region" : "us-east-1",
+        "source_ami" : "ami-0915bcb5fa77e4892"
     },
     "builders" : [
         {
@@ -18,7 +18,7 @@
             },
             "tags" : {
                 "Tool" : "Packer",
-                "Author" : "mlabouardy"
+                "Author" : "michael.fi"
             }
         }
     ],
@@ -55,12 +55,12 @@
         },
         {
             "type" : "file",
-            "source" : "/Users/mlabouardy/.ssh/id_rsa",
+            "source" : "/Users/michael/.ssh/jenkins",
             "destination" : "/tmp/id_rsa"
         },
         {
             "type" : "file",
-            "source" : "/Users/mlabouardy/.ssh/id_rsa.pub",
+            "source" : "/Users/michael/.ssh/jenkins.pub",
             "destination" : "/tmp/id_rsa.pub"
         },
         {
