@@ -27,7 +27,7 @@ resource "aws_security_group" "jenkins_master_sg" {
 
   tags {
     Name   = "jenkins_master_sg"
-    Author = "mlabouardy"
+    Author = "michael.fi"
     Tool   = "Terraform"
   }
 }
@@ -53,7 +53,7 @@ resource "aws_security_group" "jenkins_slaves_sg" {
 
   tags {
     Name   = "jenkins_slaves_sg"
-    Author = "mlabouardy"
+    Author = "michael.fi"
     Tool   = "Terraform"
   }
 }
@@ -79,7 +79,7 @@ resource "aws_security_group" "elb_jenkins_sg" {
 
   tags {
     Name   = "elb_jenkins_sg"
-    Author = "mlabouardy"
+    Author = "michael.fi"
     Tool   = "Terraform"
   }
 }
