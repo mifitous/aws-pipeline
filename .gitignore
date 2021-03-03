@@ -5,3 +5,4 @@ variables.tfvars
 node_modules/
 build/
 .idea/
+deploy-a-highly-available-jenkins-cluster-on-aws/terraform/.terraform.lock.hcl
