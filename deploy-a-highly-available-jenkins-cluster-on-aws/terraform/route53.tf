@@ -1,6 +1,6 @@
 resource "aws_route53_record" "jenkins_master" {
   zone_id = "${var.hosted_zone_id}"
-  name    = "jenkins.slowcoder.com"
+  name    = "jenkins.bw-robotics.com"
   type    = "A"
 
   alias {
