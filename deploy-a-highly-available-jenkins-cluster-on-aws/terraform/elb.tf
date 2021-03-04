@@ -1,6 +1,6 @@
 // Jenkins ELB
 resource "aws_elb" "jenkins_elb" {
-  subnets                   = ["${var.vpc_public_subnets}"]
+  subnets                   = "${var.vpc_public_subnets}"
   cross_zone_load_balancing = true
   security_groups           = ["${aws_security_group.elb_jenkins_sg.id}"]
   instances                 = ["${aws_instance.jenkins_master.id}"]
