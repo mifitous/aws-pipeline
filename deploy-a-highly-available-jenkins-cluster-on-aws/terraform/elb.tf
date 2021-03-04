@@ -21,7 +21,7 @@ resource "aws_elb" "jenkins_elb" {
     interval            = 5
   }
 
-  tags {
+  tags = {
     Name   = "jenkins_elb"
     Author = "michael.fi"
     Tool   = "Terraform"

@@ -25,7 +25,7 @@ resource "aws_security_group" "jenkins_master_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name   = "jenkins_master_sg"
     Author = "michael.fi"
     Tool   = "Terraform"
@@ -51,7 +51,7 @@ resource "aws_security_group" "jenkins_slaves_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name   = "jenkins_slaves_sg"
     Author = "michael.fi"
     Tool   = "Terraform"
@@ -77,7 +77,7 @@ resource "aws_security_group" "elb_jenkins_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name   = "elb_jenkins_sg"
     Author = "michael.fi"
     Tool   = "Terraform"

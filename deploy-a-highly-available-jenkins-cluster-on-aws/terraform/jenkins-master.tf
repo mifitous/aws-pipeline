@@ -11,7 +11,7 @@ resource "aws_instance" "jenkins_master" {
     delete_on_termination = false
   }
 
-  tags {
+  tags = {
     Name   = "jenkins_master"
     Author = "michael.fi"
     Tool   = "Terraform"
