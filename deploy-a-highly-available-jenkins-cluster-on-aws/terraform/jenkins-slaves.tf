@@ -75,7 +75,7 @@ resource "aws_cloudwatch_metric_alarm" "high-cpu-jenkins-slaves-alarm" {
   statistic           = "Average"
   threshold           = "80"
 
-  dimensions {
+  dimensions = {
     AutoScalingGroupName = "${aws_autoscaling_group.jenkins_slaves.name}"
   }
 
@@ -102,7 +102,7 @@ resource "aws_cloudwatch_metric_alarm" "low-cpu-jenkins-slaves-alarm" {
   statistic           = "Average"
   threshold           = "20"
 
-  dimensions {
+  dimensions = {
     AutoScalingGroupName = "${aws_autoscaling_group.jenkins_slaves.name}"
   }
 
