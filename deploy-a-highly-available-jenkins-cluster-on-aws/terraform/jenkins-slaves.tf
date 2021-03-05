@@ -3,7 +3,7 @@ data "template_file" "user_data_slave" {
   template = "${file("scripts/join-cluster.tpl")}"
 
   vars = {
-    jenkins_url            = "http://${aws_instance.jenkins_master.private_ip}:8080"
+    jenkins_url            = "http://${aws_spot_instance_request.jenkins_master.private_ip}:8080"
     jenkins_username       = "${var.jenkins_username}"
     jenkins_password       = "${var.jenkins_password}"
     jenkins_credentials_id = "${var.jenkins_credentials_id}"
@@ -18,6 +18,7 @@ resource "aws_launch_configuration" "jenkins_slave_launch_conf" {
   key_name             = "${var.key_name}"
   security_groups      = ["${aws_security_group.jenkins_slaves_sg.id}"]
   user_data            = "${data.template_file.user_data_slave.rendered}"
+  spot_price           = "${var.spot_price}"
   iam_instance_profile = "${aws_iam_instance_profile.profile.arn}"
 
   root_block_device {
@@ -39,7 +40,7 @@ resource "aws_autoscaling_group" "jenkins_slaves" {
   min_size             = "${var.min_jenkins_slaves}"
   max_size             = "${var.max_jenkins_slaves}"
 
-  depends_on = ["aws_instance.jenkins_master", "aws_elb.jenkins_elb"]
+  depends_on = ["aws_spot_instance_request.jenkins_master", "aws_elb.jenkins_elb"]
 
   lifecycle {
     create_before_destroy = true
