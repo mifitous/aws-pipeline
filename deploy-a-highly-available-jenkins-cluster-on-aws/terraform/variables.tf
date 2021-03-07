@@ -83,5 +83,5 @@ variable "max_jenkins_slaves" {
 
 variable "spot_price" {
   description = "Spot instance maximum price"
-  default     = "0.03"
+  default     = "0.05"
 }
