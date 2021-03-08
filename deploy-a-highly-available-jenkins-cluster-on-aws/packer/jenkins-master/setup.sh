@@ -1,12 +1,12 @@
 #!/bin/bash
 
 echo "Install Jenkins stable release"
-yum remove -y java
-yum install -y java-1.8.0-openjdk
-wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat/jenkins.repo
 rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
-#rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
-yum install -y jenkins
+yum upgrade
+yum install -y jenkins java-1.8.0-openjdk-devel
+systemctl daemon-reload
 chkconfig jenkins on
 
 echo "Install Telegraf"
