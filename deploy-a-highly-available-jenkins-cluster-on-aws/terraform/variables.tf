@@ -78,7 +78,7 @@ variable "min_jenkins_slaves" {
 
 variable "max_jenkins_slaves" {
   description = "Max slaves"
-  default     = "5"
+  default     = "15"
 }
 
 variable "spot_price" {
