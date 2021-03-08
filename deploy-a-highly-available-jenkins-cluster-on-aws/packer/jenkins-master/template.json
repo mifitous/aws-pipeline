@@ -28,11 +28,6 @@
             "source" : "./basic-security.groovy",
             "destination" : "/tmp/basic-security.groovy"
         },
-//        {
-//            "type" : "file",
-//            "source" : "./jenkins.install.UpgradeWizard.state",
-//            "destination" : "/tmp/jenkins.install.UpgradeWizard.state"
-//        },
         {
             "type" : "file",
             "source" : "./disable-cli.groovy",
