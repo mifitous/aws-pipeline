@@ -4,7 +4,7 @@ data "aws_ami" "jenkins-master" {
 
   filter {
     name   = "name"
-    values = ["jenkins-master-2.282"]
+    values = ["jenkins-master"]
   }
 }
 
