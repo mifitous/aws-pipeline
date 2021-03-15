@@ -29,6 +29,13 @@ mv /tmp/id_rsa.pub /var/lib/jenkins/.ssh/id_rsa.pub
 chown -R jenkins:jenkins /var/lib/jenkins/.ssh
 chmod 600 /var/lib/jenkins/.ssh/id_rsa /var/lib/jenkins/.ssh/id_rsa.pub
 
+echo "Restore config from git"
+cd /var/lib/jenkins
+git init
+git remote add origin git@github.com:bw-robotics/JenkinsBackup.git
+git pull origin master
+chown -R jenkins:jenkins /var/lib/jenkins
+
 echo "Configure Jenkins"
 mkdir -p /var/lib/jenkins/init.groovy.d
 mv /tmp/basic-security.groovy /var/lib/jenkins/init.groovy.d/basic-security.groovy
