@@ -1,7 +1,7 @@
 resource "aws_spot_instance_request" "jenkins_master" {
   ami                    = "${data.aws_ami.jenkins-master.id}"
   wait_for_fulfillment   = true
-  spot_price             = "${var.spot_price}"
+  spot_price             = "${var.spot_price_master}"
   instance_type          = "${var.jenkins_master_instance_type}"
   key_name               = "${var.key_name}"
   vpc_security_group_ids = ["${aws_security_group.jenkins_master_sg.id}"]

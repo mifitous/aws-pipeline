@@ -18,7 +18,7 @@ resource "aws_launch_configuration" "jenkins_slave_launch_conf" {
   key_name             = "${var.key_name}"
   security_groups      = ["${aws_security_group.jenkins_slaves_sg.id}"]
   user_data            = "${data.template_file.user_data_slave.rendered}"
-  spot_price           = "${var.spot_price}"
+  spot_price           = "${var.spot_price_slave}"
   iam_instance_profile = "${aws_iam_instance_profile.profile.arn}"
 
   root_block_device {
