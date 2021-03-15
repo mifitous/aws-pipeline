@@ -1,6 +1,6 @@
 resource "aws_iam_instance_profile" "profile" {
   name = "JenkinsSlavesAccess"
-  role = "${aws_iam_role.role.name}"
+  role = aws_iam_role.role.name
 }
 
 resource "aws_iam_role" "role" {
@@ -26,7 +26,7 @@ EOF
 
 resource "aws_iam_role_policy" "s3_policy" {
   name = "UploadStaticFiles"
-  role = "${aws_iam_role.role.id}"
+  role = aws_iam_role.role.id
 
   policy = <<EOF
 {

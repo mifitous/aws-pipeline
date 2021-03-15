@@ -3,5 +3,5 @@ output "Jenkins-DNS" {
 }
 
 output "Jenkins-SG-ID" {
-  value = "${aws_security_group.jenkins_master_sg.id}"
+  value = aws_security_group.jenkins_master_sg.id
 }

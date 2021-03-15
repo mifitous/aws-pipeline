@@ -34,12 +34,12 @@ variable "vpc_id" {
 
 variable "vpc_private_subnets" {
   description = "List of VPC private subnets"
-  type        = "list"
+  type        = list
 }
 
 variable "vpc_public_subnets" {
   description = "List of VPC Public subnets"
-  type        = "list"
+  type        = list
 }
 
 variable "hosted_zone_id" {

@@ -1,21 +1,21 @@
 resource "aws_security_group" "jenkins_master_sg" {
   name        = "jenkins_master_sg"
   description = "Allow traffic on port 8080 and enable SSH"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = var.vpc_id
 
   ingress {
     from_port       = "22"
     to_port         = "22"
     protocol        = "tcp"
-    security_groups = ["${var.bastion_sg_id}"]
+    security_groups = [var.bastion_sg_id]
   }
 
   ingress {
     from_port       = "8080"
     to_port         = "8080"
     protocol        = "tcp"
-    cidr_blocks     = ["${var.vpc_cidr_block}"]
-    security_groups = ["${aws_security_group.elb_jenkins_sg.id}"]
+    cidr_blocks     = [var.vpc_cidr_block]
+    security_groups = [aws_security_group.elb_jenkins_sg.id]
   }
 
   egress {
@@ -35,13 +35,13 @@ resource "aws_security_group" "jenkins_master_sg" {
 resource "aws_security_group" "jenkins_slaves_sg" {
   name        = "jenkins_slaves_sg"
   description = "Allow traffic on port 22 from Jenkins Master SG"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = var.vpc_id
 
   ingress {
     from_port       = "22"
     to_port         = "22"
     protocol        = "tcp"
-    security_groups = ["${aws_security_group.jenkins_master_sg.id}", "${var.bastion_sg_id}"]
+    security_groups = [aws_security_group.jenkins_master_sg.id, var.bastion_sg_id]
   }
 
   egress {
@@ -61,7 +61,7 @@ resource "aws_security_group" "jenkins_slaves_sg" {
 resource "aws_security_group" "elb_jenkins_sg" {
   name        = "elb_jenkins_sg"
   description = "Allow https traffic"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = var.vpc_id
 
   ingress {
     from_port   = "443"
