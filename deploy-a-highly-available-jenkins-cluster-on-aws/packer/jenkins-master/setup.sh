@@ -20,9 +20,8 @@ service telegraf start
 echo "Install git"
 yum install -y git
 cd /var/lib/jenkins
-git init
-git clean -df
-chown -R jenkins:jenkins /var/lib/jenkins/.git
+sudo -H -u jenkins bash -c 'git init'
+sudo -H -u jenkins bash -c 'git clean -df'
 
 echo "Setup SSH key"
 mkdir /var/lib/jenkins/.ssh
@@ -34,11 +33,9 @@ chown -R jenkins:jenkins /var/lib/jenkins/.ssh
 chmod 600 /var/lib/jenkins/.ssh/id_rsa /var/lib/jenkins/.ssh/id_rsa.pub
 
 echo "Restore config from git"
-cd /var/lib/jenkins
-git remote add origin git@github.com:bw-robotics/JenkinsBackup.git
-ssh -o StrictHostKeyChecking=no git@github.com
-git pull origin master
-chown -R jenkins:jenkins /var/lib/jenkins/.git
+sudo -H -u jenkins bash -c 'git remote add origin git@github.com:bw-robotics/JenkinsBackup.git'
+sudo -H -u jenkins bash -c 'ssh -o StrictHostKeyChecking=no git@github.com'
+sudo -H -u jenkins bash -c 'git pull origin master'
 
 echo "Configure Jenkins"
 mkdir -p /var/lib/jenkins/init.groovy.d
