@@ -21,7 +21,7 @@ echo "Install git"
 yum install -y git
 cd /var/lib/jenkins
 sudo -H -u jenkins bash -c 'git init'
-sudo -H -u jenkins bash -c 'git clean -df'
+#sudo -H -u jenkins bash -c 'git clean -df'
 
 echo "Setup SSH key"
 mkdir /var/lib/jenkins/.ssh
