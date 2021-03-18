@@ -40,7 +40,7 @@ resource "aws_autoscaling_group" "jenkins_slaves" {
   min_size             = var.min_jenkins_slaves
   max_size             = var.max_jenkins_slaves
 
-  depends_on = [aws_spot_instance_request.jenkins_master, aws_elb.jenkins_elb]
+  depends_on = [aws_instance.jenkins_master, aws_elb.jenkins_elb]
 
   lifecycle {
     create_before_destroy = true
