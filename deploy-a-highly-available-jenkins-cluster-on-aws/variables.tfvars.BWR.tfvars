@@ -22,4 +22,4 @@ vpc_private_subnets = ["subnet-00eefbe46500dd3ea", "subnet-0610203c2af4c3e4b"]
 
 vpc_public_subnets = ["subnet-58680756"]
 
-ssl_arn = "arn:aws:acm:us-east-1:579466656149:certificate/b55f33a8-699a-42ba-b609-ee93a21b429b"
+ssl_arn = "arn:aws:acm:us-east-1:579466656149:certificate/bbd4c227-b94a-4c04-8593-6fe5a7e84b91"

@@ -16,7 +16,7 @@ privateKey = new File('/tmp/id_rsa').getText('UTF-8')
 slavesPrivateKey = new BasicSSHUserPrivateKey(
 CredentialsScope.GLOBAL,
 "jenkins-slaves",
-"ec2-user",
+"ubuntu",
 new BasicSSHUserPrivateKey.DirectEntryPrivateKeySource(privateKey),
 "",
 ""
@@ -25,7 +25,7 @@ new BasicSSHUserPrivateKey.DirectEntryPrivateKeySource(privateKey),
 managersPrivateKey = new BasicSSHUserPrivateKey(
 CredentialsScope.GLOBAL,
 "swarm-managers",
-"ec2-user",
+"ubuntu",
 new BasicSSHUserPrivateKey.DirectEntryPrivateKeySource(privateKey),
 "",
 ""

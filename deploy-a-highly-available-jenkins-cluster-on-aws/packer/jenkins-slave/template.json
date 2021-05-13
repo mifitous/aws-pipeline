@@ -1,7 +1,7 @@
 {
     "variables" : {
         "region" : "us-east-1",
-        "source_ami" : "ami-0915bcb5fa77e4892"
+        "source_ami" : "ami-0747bdcabd34c712a"
     },
     "builders" : [
         {
@@ -10,9 +10,9 @@
             "region" : "{{user `region`}}",
             "instance_type" : "t2.micro",
             "source_ami" : "{{user `source_ami`}}",
-            "ssh_username" : "ec2-user",
+            "ssh_username" : "ubuntu",
             "ami_name" : "jenkins-slave",
-            "ami_description" : "Amazon Linux Image for Jenkins Slave",
+            "ami_description" : "Ubuntu Bionic 18.04 LTS Linux Image for Jenkins Slave",
             "run_tags" : {
                 "Name" : "packer-builder-docker"
             },

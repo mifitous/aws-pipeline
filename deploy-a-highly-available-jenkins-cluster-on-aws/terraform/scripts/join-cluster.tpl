@@ -20,7 +20,7 @@ import hudson.plugins.sshslaves.verifiers.NonVerifyingKeyVerificationStrategy
 import hudson.plugins.sshslaves.SSHLauncher
 DumbSlave dumb = new DumbSlave("'$INSTANCE_NAME'",
 "'$INSTANCE_NAME'",
-"/home/ec2-user",
+"/home/ubuntu",
 "3",
 Mode.NORMAL,
 "slaves",
